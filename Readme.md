@@ -507,3 +507,81 @@ print(new_list)
 # History - Math - Physics - Computer Science
 # ['History', 'Math', 'Physics', 'Computer Science']
 ```
+
+### Tuples
+
+- The difference between lists and tuples in Python is immutability. Lists are mutable but tuples are not. If you want something you can modify, use a list, if you want something immutable you can loop through, use a tuple.
+
+```py
+tuple_1 = ('History', 'Math', 'Physics')
+tuple_2 = tuple_1
+
+print(tuple_1)
+print(tuple_2)
+
+tuple_1[0] = 'Art'
+
+print(tuple_1)
+print(tuple_2)
+
+# prints
+# TypeError: 'tuple' object does not support item assignment
+```
+
+### Sets
+
+- Sets are types that are unordered and have no duplicates. Sets throw away duplicates. Sets don't really care about order of insertion or retrieval
+
+```py
+set_1 = {'History', 'Math', 'Physics', 'Math'}
+print(set_1)
+
+# prints {'Physics', 'Math', 'History'}
+```
+
+- we can see what values 2 sets share with the `intersection()` method
+
+```py
+set_1 = {'History', 'Math', 'Physics', 'Design'}
+set_2 = {'History', 'Math', 'Art'}
+
+print(set_1.intersection(set_2));
+# prints {'Math', 'History'}
+```
+
+- the `difference()` method shows the values that are present in one set, but not in the other
+
+```py
+set_1 = {'History', 'Math', 'Physics', 'Design'}
+set_2 = {'History', 'Math', 'Art'}
+
+# what values are in set_1 but not in set_2
+print(set_1.difference(set_2));
+# prints {'Design', 'Physics'}
+```
+
+- combine the values of both sets with the `union()` method
+
+```py
+set_1 = {'History', 'Math', 'Physics', 'Design'}
+set_2 = {'History', 'Math', 'Art'}
+
+print(set_1.union(set_2));
+# prints {'History', 'Physics', 'Art', 'Design', 'Math'}
+```
+
+### Creating Lists, Tuples and Sets
+
+```py
+# creating empty lists
+empty_list = []
+empty_list = list()
+
+# creating empty tuples
+empty_tuple = ()
+empty_tuple = tuple()
+
+# creating empty sets
+empty_set = {} # This won't create an empty set, but an empty dictionary
+empty_set = set()
+```
