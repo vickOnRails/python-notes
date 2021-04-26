@@ -304,3 +304,206 @@ num_2 = int(num_2)
 
 print(num_1 + num_2)
 ```
+
+## Lists, Tuples and Sets
+
+- Lists and tuples allow us to work with sequencial data and sets are unordered collection of values with no duplicates.
+
+```py
+courses = ['History', 'Math', 'Physics', 'Computer Science']
+
+print(courses[0:3])
+print(courses[3:])
+print(courses[:])
+
+# prints
+# ['History', 'Math', 'Physics']
+# ['Computer Science']
+# ['History', 'Math', 'Physics', 'Computer Science']
+
+```
+
+- We can add a new member to a list with the `append()` & `insert()` methods
+
+```py
+courses = ['History', 'Math', 'Physics', 'Computer Science']
+
+# insert the new member at the specified index
+courses.insert(0, 'Art')
+print(courses)
+
+# insert the new member at the end of the array
+courses.append('Art')
+print(courses)
+
+# prints
+# ['Art', 'History', 'Math', 'Physics', 'Computer Science']
+# ['Art', 'History', 'Math', 'Physics', 'Computer Science', 'Art']
+```
+
+- We can combine multiple arrays into one with the `extend()` method. Much like `Array.flat()` in javascript.
+
+```py
+courses_1 = ['History', 'Math', 'Physics', 'Computer Science']
+courses_2 = ['History', 'Math', 'Physics', 'Computer Science']
+courses_add = ['Art', 'Education']
+
+courses_1.insert(0, courses_add)
+
+print(courses_1)
+# prints
+#
+
+courses_2.extend(courses_add)
+print(courses_2)
+
+# [['Art', 'Education'], 'History', 'Math', 'Physics', 'Computer Science']
+# ['History', 'Math', 'Physics', 'Computer Science', 'Art', 'Education']
+```
+
+- remove values from a list with the `remove()` method
+
+```py
+courses = ['History', 'Math', 'Physics', 'Computer Science']
+
+courses.remove('Math')
+print(courses)
+
+# ['History', 'Physics', 'Computer Science']
+```
+
+- The `pop()` method removes the last value from our list
+
+```py
+courses = ['History', 'Math', 'Physics', 'Computer Science']
+
+# we can also get the popped out value
+popped = courses.pop()
+
+print(popped)
+print(courses)
+
+# prints
+# Computer Science
+# ['History', 'Physics', 'Computer Science']
+
+```
+
+- There's a `reverse()` method on lists that reverses them.
+
+```py
+courses = ['History', 'Math', 'Physics', 'Computer Science']
+
+# we can also get the popped out value
+courses.reverse()
+print(courses)
+
+# ['Computer Science', 'Physics', 'Math', 'History']
+```
+
+- `sort()` method sorts lists
+
+```py
+courses = ['History', 'Math', 'Physics', 'Computer Science']
+
+# sorts the list alphabetically by default if it's text and by magnitude if it's a number
+courses.sort()
+print(courses)
+
+# ['Computer Science', 'History', 'Math', 'Physics']
+```
+
+- We can change the order to descending by passing `reverse=True` to the `reverse()` and `sort()` function
+
+```py
+courses = ['History', 'Math', 'Physics', 'Computer Science']
+
+courses.sort(reverse=True)
+print(courses)
+
+# ['Physics', 'Math', 'History', 'Computer Science']
+```
+
+- Most times, you'd not want to alter the initial list, but create a new version of the list. We can use the `sorted()` function to do that instead.
+
+```py
+courses = ['History', 'Math', 'Physics', 'Computer Science']
+
+sorted_courses = sorted(courses)
+print(courses)
+print(sorted_courses)
+
+
+# ['Physics', 'Math', 'History', 'Computer Science']
+# ['Computer Science', 'History', 'Math', 'Physics']
+```
+
+- other utility lists methods
+
+```py
+nums = [1, 2, 3, 4, 5]
+
+# print the minimum of nums
+print(min(nums))
+
+# print the maximum of nums
+print(max(nums))
+
+# print the sum of nums
+print(sum(nums))
+
+# prints
+# 1
+# 5
+# 15
+```
+
+- Find the index of a value in list with the `index()` nethod
+
+```py
+courses = ['History', 'Math', 'Physics', 'Computer Science']
+
+print(courses.index('Computer Science'))
+# prints 3
+```
+
+- There's also an easier way to know if a value exists in an array with the `in` construct
+
+```py
+courses = ['History', 'Math', 'Physics', 'Computer Science']
+
+print('Art' in courses)
+# prints False
+```
+
+- the `join()` function can be used to break up an array into a string separated by any value
+
+```py
+courses = ['History', 'Math', 'Physics', 'Computer Science']
+
+courses_str = ', '.join(courses)
+courses_str_1 = ' - '.join(courses)
+
+print(courses_str)
+print(courses_str_1)
+
+# prints
+# History, Math, Physics, Computer Science
+# History - Math - Physics - Computer Science
+```
+
+- We can furthermore convert a string back to an array
+
+```py
+courses = ['History', 'Math', 'Physics', 'Computer Science']
+
+courses_str = ' - '.join(courses)
+new_list = courses_str.split(' - ')
+
+print(courses_str)
+print(new_list)
+
+# prints
+# History - Math - Physics - Computer Science
+# ['History', 'Math', 'Physics', 'Computer Science']
+```
