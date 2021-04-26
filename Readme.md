@@ -233,3 +233,74 @@ print(help(str.lower))
 
 # Prints out a lot of things 🤷🏼‍♀️
 ```
+
+---
+
+## Integers and Floats
+
+- In Python, numbers are normally represented in Integer & floats. An integer is a whole number and a float is a decimal.
+- Python has a `type()` function that prints out the type of a value. Similar to `typeof` operator in javascript
+
+```py
+num = 3
+float_num = 3.14
+
+print(type(num))
+print(type(float_num))
+
+# prints
+# <class 'int'>
+# <class 'float'>
+```
+
+- basic arithmetics in Python
+
+```py
+# addition 3+2 = 5
+# subtraction 3-2 = 1
+# multiplication 3*2 = 6
+# division 3/2 = 1.5
+# division without remainder 3//2 = 1
+# power 3**2 = 9
+# modulus 3%2 = 1 (returns only the remainder of a division)
+```
+
+> **Differences between the `/` and `//` sign**. The `/` sign divides and returns the remainder (3/2 = 1.5) while the `//` returns just the whole number and throws away the remainders (3//2 = 1).
+
+- We can get the absolute value of a number (remove the negative sign) with the `abs` function(). Also round up decimal numbers with the `round()` function. `round` takes a second argument that specifies the number of numbers after the digit (places).
+
+```py
+print(abs(-3.4))
+print(round(3.75))
+print(round(3.75, 1))
+
+# prints
+# 3.4
+# 4
+# 3.8
+```
+
+### Conditional operators
+
+- Most conditional operators will return a boolean: either `true` or `false`
+
+```py
+# Equal: 3 == 2 =
+# Not Equal: 3 != 2
+# Greater Than: 3 > 2
+# Less Than: 3 < 2
+# Greater or Equal: 3 >= 2
+# Less or Equal: 3 <= 2
+```
+
+- cast a string to an integer by using the `int()` function
+
+```py
+num_1 = '100'
+num_2 = '200'
+
+num_1 = int(num_1)
+num_2 = int(num_2)
+
+print(num_1 + num_2)
+```
