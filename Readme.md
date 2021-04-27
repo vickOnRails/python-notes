@@ -585,3 +585,317 @@ empty_tuple = tuple()
 empty_set = {} # This won't create an empty set, but an empty dictionary
 empty_set = set()
 ```
+
+## Dictionaries
+
+- Dictionaries in Python are very similar to Javascript objects
+
+```py
+person = {"name": 'Victor', 'age': 23, 'courses': ['Maths', 'Geography']}
+print(person)
+# prints {'name': 'Victor', 'age': 23, 'courses': ['Maths', 'Geography']}
+```
+
+- if we try to access a value that does not exist, it'll throw an error. But we can get around this by using the `.get()` method on the dictionary.
+
+```py
+person = {"name": 'Victor', 'age': 23, 'courses': ['Maths', 'Geography']}
+print(person.get('name'))
+```
+
+- Now we can get more flexible with specifying what to do when the key is not available
+
+```py
+person = {"name": 'Victor', 'age': 23, 'courses': ['Maths', 'Geography']}
+
+# Second argument specifies a default value if the key is not available on the dictionary
+print(person.get('nam', 'Not Found'))
+# prints Not Found
+```
+
+- To add a new value to a dictionary, we use the assignment
+
+```py
+person = {"name": 'Victor', 'age': 23, 'courses': ['Maths', 'Geography']}
+person['phone'] = '4444 4444'
+
+print(person.get('phone', 'Not Found'))
+# prints 4444 4444
+```
+
+- dictionaries are mutable. We can reassign values to keys manually or with the `update()` method
+
+```py
+person = {"name": 'Victor', 'age': 23, 'courses': ['Maths', 'Geography']}
+# update numerous values at once
+person.update({'name': 'Ekene', 'age': 30})
+
+print(person)
+# prints {'name': 'Ekene', 'age': 30, 'courses': ['Maths', 'Geography']}
+```
+
+- to delete a key & value from a dictionary, use the `del` keyword
+
+```py
+person = {'name': 'Victor', 'age': 23, 'courses': ['Maths', 'Geography']}
+
+del person['name']
+
+print(person)
+# {'age': 23, 'courses': ['Maths', 'Geography']}
+```
+
+- We can also remove an item with the `pop()` method
+
+```py
+person = {'name': 'Victor', 'age': 23, 'courses': ['Maths', 'Geography']}
+
+age = person.pop('name')
+
+print(person)
+print(age)
+# {'age': 23, 'courses': ['Maths', 'Geography']}
+```
+
+- get the length of a dictionary with the `len()` function
+
+```py
+person = {'name': 'Victor', 'age': 23, 'courses': ['Maths', 'Geography']}
+
+print(len(person))
+# prints 3
+```
+
+- to see all the keys of the dictionary, we use the `keys()` method
+
+```py
+person = {'name': 'Victor', 'age': 23, 'courses': ['Maths', 'Geography']}
+
+print(person.keys())
+print(person.values())
+print(person.items())
+
+# prints
+
+# dict_keys(['name', 'age', 'courses'])
+# dict_values(['Victor', 23, ['Maths', 'Geography']])
+# dict_items([('name', 'Victor'), ('age', 23), ('courses', ['Maths', 'Geography'])])
+```
+
+### Looping through dictionaries
+
+```py
+person = {'name': 'Victor', 'age': 23, 'courses': ['Maths', 'Geography']}
+
+for key in person:
+    print(key)
+
+for key, value in person.items():
+    print(key, value)
+
+# prints
+
+# name Victor
+# age 23
+# courses ['Maths', 'Geography']
+```
+
+- looping through dictionaries ti
+
+## Conditionals
+
+- The syntax for conditionals in Python are very much new to me coming from a Javascript background. Take for example, `if & else` statements
+
+```py
+language = 'Python'
+if language == 'Java':
+    print('Java')
+elif language == 'Python':
+    print('Python')
+else:
+    print('Some other')
+
+# prints Python
+```
+
+- Python has no `switch` case statements, so we use just `if` & `else` for pretty much everything.
+- Logical operators in Python help make assertions easier. There's the `and`, `or` & `not` operators.
+
+```py
+user = 'Admin'
+logged_in = False
+
+if user == 'Admin' and logged_in:
+    print('Admin Page')
+else:
+    print('Bad Credentials')
+
+# prints Bad Credentials
+
+# and returns true if both values are positive
+# or returns true only if one value is possible
+# not operator negates a boolean value
+```
+
+- `is` operator helps us compare if 2 items are exactly the same (that is, have one location in memory).
+
+```py
+a = [1, 2,3]
+b = [1, 2,3]
+
+print(a is b)
+# prints false
+```
+
+- items in memory have an `id` that can be used for comparisons
+
+```py
+a = [1, 2,3]
+b = [1, 2,3]
+c = a
+
+print(id(a))
+print(id(b))
+print(id(a) == id(b))
+print(id(a) == id(c))
+# prints
+
+# 2230659345344
+# 2230659370432
+# False
+# True
+```
+
+## Loops
+
+- We can loop through lists with the `for` loop construct
+
+```py
+nums = [1,2,3,4,5]
+
+for num in nums:
+    print(num)
+```
+
+- `break` statements will break from a loop while `continue` statements will move to the next iteration
+
+```py
+nums = [1,2,3,4,5]
+
+for num in nums:
+    if num == 3:
+        print('Found!')
+        break
+    print(num)
+
+# prints
+# 1
+# 2
+# Found!
+```
+
+---
+
+```py
+nums = [1,2,3,4,5]
+
+for num in nums:
+    if num == 3:
+        print('Found!')
+        continue
+    print(num)
+
+# prints
+# 1
+# 2
+# Found!
+# 4
+# 5
+```
+
+- While loops iterate through a value until a condition is falsy
+
+```py
+num = 0
+while num < 5:
+    print(num)
+    num += 1
+
+# prints
+# 0
+# 1
+# 2
+# 3
+# 4
+```
+
+## Functions
+
+- to create a function, use the `def` keyword
+
+```py
+# to write a function without a body, we need to use the `pass` keyword
+def hello_func():
+    pass
+
+# we can call the function by appending the parenthesis
+hello_func()
+# if we try to print an empty function
+print(hello_func())
+
+# prints None
+```
+
+- We can have default parameters for functions by assigning a default value to the function arguments.
+
+```py
+def hello_func(greeting, name = 'You'):
+    return '{}, {}'.format(greeting, name);
+
+print(hello_func('Hi'))
+print(hello_func('Hi', 'Corey'))
+
+# prints
+
+# Hi, You
+# Hi, Corey
+```
+
+- `args` and `kwargs` are ways to get all the information passed into a function.
+
+```py
+def student_info(*args, **kwargs):
+    print(args)
+    print(kwargs)
+
+student_info('Math', 'Art', name = 'John', age = 22)
+
+# prints
+
+# ('Math', 'Art')
+# {'name': 'John', 'age': 22}
+
+# args outputs a tuple of all the parameters passed in
+# kwargs outputs a dictionary of the named parameters passed in
+```
+
+- using `args` and `kwargs` to their fullest. We can pass in a tuple and a dictionary of function parameters so functions can make use of them.
+
+```py
+def student_info(*args, **kwargs):
+    print(args)
+    print(kwargs)
+
+course = ['Math', 'Art']
+info = {'name': 'John', 'age': 22}
+
+student_info(*course, **info)
+
+# prints
+
+# outputs the
+# ('Math', 'Art')
+# {'name': 'John', 'age': 22}
+```
+
+- `doc` strings start and end with tripple quotes (`"`). They can be used to preserve. It's good practice to write a doc string alongside every function explaining what it's doing.
