@@ -899,3 +899,93 @@ student_info(*course, **info)
 ```
 
 - `doc` strings start and end with tripple quotes (`"`). They can be used to preserve. It's good practice to write a doc string alongside every function explaining what it's doing.
+
+## importing Modules in Python
+
+- There are many ways to import modules in Python. Let's say we have a module name `my_module.py` with the following code
+
+```py
+print('Importing values from my_module')
+
+test = 'Testing the waters'
+
+def find_index(list, item):
+    """find the index of item in list"""
+    for i,value in enumerate(list):
+        if(value == item):
+            # return index if it exists
+            return i
+    return -1
+```
+
+- And we have another file to consume `app_module.py` this module. We can import it in one of the following ways
+
+```py
+# because we are in the same directory
+import my_module
+
+courses = ['Maths', 'English', 'Physics']
+index = my_module.find_index(courses, 'Physics')
+
+print(index)
+# prints
+
+# Importing values from my_module
+# 2
+```
+
+- Or we could specify a different name for the imported module
+
+```py
+# because we are in the same directory
+import my_module as mm
+
+courses = ['Maths', 'English', 'Physics']
+index = mm.find_index(courses, 'Physics')
+
+print(index)
+# prints
+
+# Importing values from my_module
+# 2
+```
+
+- Or we could import specific parts of the module
+
+```py
+# import just find_index & test from my_module
+from my_module import find_index, test
+
+courses = ['Maths', 'English', 'Physics']
+index = find_index(courses, 'Physics')
+
+print(index)
+print(test)
+
+# prints
+# Importing values from my_module
+# 2
+# Testing the waters
+```
+
+- Importing everything from a module. It's typical frowned upon by developers because it gets harder to understand where the functions and values come from when debugging.
+
+```py
+# import everything from my_module
+from my_module import *
+
+courses = ['Maths', 'English', 'Physics']
+# if we were debugging find_index, how would we start?
+index = find_index(courses, 'Physics')
+
+print(index)
+print(test)
+
+# prints
+# Importing values from my_module
+# 2
+# Testing the waters
+```
+
+- To import custom modules that are out of the current directory, we have to either import the path to the module or add it to the system PATH.
+- Python comes with a standard library which contains default functionality for common usecases.
